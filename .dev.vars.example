@@ -1,0 +1,6 @@
+# Copie para .dev.vars (que não vai para o git) e preencha.
+# Em produção, esses valores ficam em secrets: npx wrangler secret put NOME
+IP_SALT=troque-por-um-texto-aleatorio-longo
+# Opcionais: sem a chave, a fonte é ignorada.
+WEATHERAPI_KEY=
+OPENWEATHER_KEY=

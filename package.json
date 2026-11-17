@@ -1,0 +1,19 @@
+{
+  "name": "chove-na-ufg",
+  "version": "1.0.0",
+  "description": "Está chovendo agora no Campus Samambaia da UFG?",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc",
+    "db:local": "wrangler d1 migrations apply chove-na-ufg --local",
+    "db:remote": "wrangler d1 migrations apply chove-na-ufg --remote"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261116.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.163.0"
+  },
+  "private": true
+}

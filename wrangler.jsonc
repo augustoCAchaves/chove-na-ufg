@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chove-na-ufg",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-10-01",
+  "observability": { "enabled": true },
+  // Coleta as leituras a cada 10 minutos.
+  "triggers": { "crons": ["*/10 * * * *"] },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "chove-na-ufg",
+      "database_id": "637583bb-aba3-47bb-82e5-ffbe71891e50",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
