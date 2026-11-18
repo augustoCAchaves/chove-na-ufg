@@ -25,7 +25,12 @@ export interface WeatherSource {
  */
 export async function fetchText(url: string, headers?: Record<string, string>): Promise<string> {
   const res = await fetch(url, { headers, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  if (!res.ok) {
+    // O corpo de erro das APIs explica o motivo (ex.: chave inválida). Só ele
+    // entra na mensagem, nunca a URL.
+    const detail = (await res.text().catch(() => "")).slice(0, 300);
+    throw new Error(`HTTP ${res.status}${detail ? `: ${detail}` : ""}`);
+  }
   return res.text();
 }
 
